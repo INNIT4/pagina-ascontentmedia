@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fotografía y video para quinceañeras en Sonora, México. Captamos cada momento de los XV años con un estilo cinematográfico único. Hermosillo, Cd. Obregón, Navojoa y todo Sonora.">
+  <title>Fotografía y Video para Quinceañeras en Sonora | AS Content Media</title>
+  <link rel="canonical" href="https://pagina-ascontentmedia.vercel.app/quincea%C3%B1eras.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Fotografía y Video para Quinceañeras en Sonora",
+    "description": "Fotografía y video cinematográfico para quinceañeras y XV años en Hermosillo, Ciudad Obregón, Navojoa y todo el estado de Sonora, México.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "AS Content Media",
+      "telephone": "+526471581483",
+      "url": "https://pagina-ascontentmedia.vercel.app/"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Hermosillo" },
+      { "@type": "City", "name": "Ciudad Obregón" },
+      { "@type": "City", "name": "Navojoa" },
+      { "@type": "City", "name": "Guaymas" },
+      { "@type": "City", "name": "Álamos" },
+      { "@type": "AdministrativeArea", "name": "Sonora" }
+    ],
+    "serviceType": "Quinceañera Photography and Videography"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .event-hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 32px 100px;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(184,150,62,0.07) 0%, transparent 70%),
+        var(--black);
+    }
+    .event-hero__inner { max-width: 760px; margin: 0 auto; }
+    .event-hero__tag { display: inline-block; font-size: 0.75rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .event-hero__title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px; }
+    .event-hero__title em { font-style: italic; color: var(--gold-lt); }
+    .event-hero__sub { font-size: 1rem; color: var(--white-60); line-height: 1.75; margin-bottom: 52px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .event-hero__location { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,239,233,0.45); margin-top: 40px; }
+    .event-section { padding: 100px 0; background: var(--black); }
+    .event-section--alt { background: linear-gradient(180deg, var(--black) 0%, #0e0c08 50%, var(--black) 100%); }
+    .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .event-card { padding: 36px 28px; border: 1px solid var(--white-08); border-radius: 4px; }
+    .event-card__num { font-family: var(--serif); font-size: 2.5rem; color: var(--gold); opacity: 0.4; line-height: 1; margin-bottom: 16px; }
+    .event-card h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 300; margin-bottom: 12px; }
+    .event-card p { font-size: 0.88rem; color: var(--white-60); line-height: 1.75; }
+    .event-cta { padding: 100px 0; text-align: center; background: radial-gradient(ellipse 85% 65% at 50% 50%, #1e1408 0%, #0e0c08 50%, var(--black) 100%); }
+    .event-cta__title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; margin-bottom: 20px; }
+    .event-cta__title em { font-style: italic; color: var(--gold-lt); }
+    .event-cta__sub { font-size: 0.93rem; color: var(--white-60); margin-bottom: 40px; }
+    .event-cta__btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    @media (max-width: 720px) { .event-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="grain"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo" style="text-decoration:none">
+      <span class="nav__logo-as">AS</span>
+      <span class="nav__logo-sub">CONTENT MEDIA</span>
+    </a>
+    <ul class="nav__links" style="margin-left:auto">
+      <li><a href="/#portafolio" class="nav__link">Portafolio</a></li>
+      <li><a href="/#nosotros" class="nav__link">Nosotros</a></li>
+      <li><a href="/#contacto" class="nav__link">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="event-hero">
+    <div class="event-hero__inner">
+      <span class="event-hero__tag">Quinceañeras · XV Años</span>
+      <h1 class="event-hero__title">Un día que<br><em>recordarás siempre</em></h1>
+      <p class="event-hero__sub">Fotografía y video cinematográfico para tus XV años. Capturamos la elegancia, la emoción y cada instante de la celebración más importante de tu vida.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/526471581483?text=Hola,%20me%20interesa%20fotografía%20para%20una%20quinceañera" class="btn btn--white btn--lg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Cotizar mis XV años
+        </a>
+        <a href="/#portafolio" class="btn btn--ghost btn--lg">Ver portafolio</a>
+      </div>
+      <div class="event-hero__location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Hermosillo · Cd. Obregón · Álamos · Todo Sonora
+      </div>
+    </div>
+  </section>
+
+  <section class="event-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Lo que incluye</span>
+        <h2 class="section-title">Cobertura <em>completa</em></h2>
+      </div>
+      <div class="event-grid">
+        <div class="event-card">
+          <div class="event-card__num">01</div>
+          <h3>Fotografía de XV Años</h3>
+          <p>Desde la preparación hasta el último baile. Fotos editadas con estilo editorial — el vals, la sorpresa, los chambelanes, la familia y todos los momentos únicos.</p>
+        </div>
+        <div class="event-card">
+          <div class="event-card__num">02</div>
+          <h3>Video Cinematográfico</h3>
+          <p>Film de tus XV años con música, narrativa y edición profesional. Un video que se ve como película y que podrás atesorar toda la vida.</p>
+        </div>
+        <div class="event-card">
+          <div class="event-card__num">03</div>
+          <h3>Reel para Instagram</h3>
+          <p>Reel dinámico con los mejores momentos de tu noche. Optimizado para Instagram y TikTok — perfecto para compartir con tus amigos al día siguiente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="event-cta">
+    <div class="container">
+      <h2 class="event-cta__title">Reserva tu <em>fecha especial</em></h2>
+      <p class="event-cta__sub">Escríbenos con la fecha y la ciudad — respondemos el mismo día con disponibilidad y cotización sin compromiso.</p>
+      <div class="event-cta__btns">
+        <a href="https://wa.me/526471581483?text=Hola,%20me%20interesa%20fotografía%20para%20una%20quinceañera" class="btn btn--white btn--lg" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        <a href="/" class="btn btn--ghost btn--lg">Conoce más →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <span class="footer__as">AS</span>
+          <span class="footer__sub">CONTENT MEDIA</span>
+        </div>
+        <p class="footer__tag">say cheese! &nbsp;&#128247;</p>
+        <p class="footer__copy">&copy; 2026 AS Content Media &nbsp;&middot;&nbsp; Sonora, M&eacute;xico &nbsp;&middot;&nbsp; <a href="/politica-privacidad.html" class="footer__privacy">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  </script>
+  <script src="/js/cursor.js"></script>
+
+</body>
+</html>

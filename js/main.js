@@ -114,7 +114,7 @@ async function loadCovers() {
       if (!placeholder) return;
       const img = document.createElement('img');
       img.src = cover.type === 'video' && cover.thumb ? cover.thumb : cover.url;
-      img.alt = '';
+      img.alt = `Portafolio de ${eventMeta[key]?.title || key} — AS Content Media Sonora`;
       img.loading = 'lazy';
       img.className = 'port-card__cover-img';
       placeholder.replaceWith(img);
@@ -189,7 +189,7 @@ function renderLightboxItem() {
   } else if (item.url) {
     const img = document.createElement('img');
     img.src = item.url;
-    img.alt = '';
+    img.alt = `Fotografía de ${modalTitle.textContent || 'evento'} — AS Content Media`;
     lightboxMedia.appendChild(img);
   }
 
@@ -241,7 +241,7 @@ function buildGalleryItem(item, realItems = [], realIndex = -1) {
     if (item.type === 'video' && item.thumb) {
       const img = document.createElement('img');
       img.src = item.thumb;
-      img.alt = '';
+      img.alt = `Video de ${modalTitle.textContent || 'evento'} — AS Content Media`;
       img.loading = 'lazy';
       div.appendChild(img);
       const play = document.createElement('div');
@@ -257,7 +257,7 @@ function buildGalleryItem(item, realItems = [], realIndex = -1) {
     } else {
       const img = document.createElement('img');
       img.src = item.url;
-      img.alt = '';
+      img.alt = `Fotografía de ${modalTitle.textContent || 'evento'} — AS Content Media`;
       img.loading = 'lazy';
       div.appendChild(img);
     }
