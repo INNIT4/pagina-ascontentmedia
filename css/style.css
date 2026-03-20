@@ -826,6 +826,20 @@ ul { list-style: none; }
   color: rgba(244, 239, 233, 0.45);
   letter-spacing: 0.05em;
 }
+.footer__dev {
+  font-size: 0.62rem;
+  color: rgba(244, 239, 233, 0.3);
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+.footer__dev-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.footer__dev-link:hover { opacity: 1; }
 
 /* =============================================
    MODAL
