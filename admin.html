@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — AS Content Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">
+        <span class="logo-as">AS</span>
+        <span class="logo-sub">CONTENT MEDIA</span>
+      </div>
+      <h2 class="login-title">Panel de administración</h2>
+      <form class="login-form" id="loginForm">
+        <div class="field">
+          <label for="loginEmail">Correo</label>
+          <input type="email" id="loginEmail" autocomplete="email" placeholder="correo@ejemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" autocomplete="current-password" placeholder="••••••••" required>
+        </div>
+        <p class="login-error" id="loginError"></p>
+        <button type="submit" class="btn-primary" id="loginBtn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-as">AS</span>
+        <span class="logo-sub">CONTENT MEDIA</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-event="bodas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Bodas
+        </button>
+        <button class="nav-item" data-event="baby-shower">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="2.5"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="2.5"/></svg>
+          Baby Shower
+        </button>
+        <button class="nav-item" data-event="cumpleanos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="10" width="20" height="11" rx="2"/><path d="M12 2c0 0-3 2-3 4s1.5 3 3 3 3-1 3-3-3-4-3-4z"/><line x1="7" y1="10" x2="7" y2="21"/><line x1="12" y1="10" x2="12" y2="21"/><line x1="17" y1="10" x2="17" y2="21"/></svg>
+          Cumplea&ntilde;os
+        </button>
+        <button class="nav-item" data-event="bridal-shower">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M12 12c-5 0-8 2.5-8 5v1h16v-1c0-2.5-3-5-8-5z"/></svg>
+          Bridal Shower
+        </button>
+        <button class="nav-item" data-event="bautizo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="9" x2="22" y2="9"/></svg>
+          Bautizo
+        </button>
+        <button class="nav-item" data-event="deportes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          Deportes
+        </button>
+        <button class="nav-item" data-event="festivales">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Festivales
+        </button>
+        <button class="nav-item" data-event="eventos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Eventos
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="btn-ghost-sm" target="_blank">Ver página</a>
+        <button class="btn-ghost-sm" id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <header class="content-header">
+        <div>
+          <h1 class="content-title" id="contentTitle">Bodas</h1>
+          <p class="content-count" id="contentCount">0 archivos</p>
+        </div>
+      </header>
+
+      <!-- Upload zone -->
+      <div class="upload-zone" id="uploadZone">
+        <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none">
+        <div class="upload-zone__inner" id="uploadZoneInner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <polyline points="16 16 12 12 8 16"/>
+            <line x1="12" y1="12" x2="12" y2="21"/>
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+          </svg>
+          <p class="upload-zone__title">Arrastra fotos y videos aquí</p>
+          <p class="upload-zone__sub">o <button class="upload-zone__browse" id="browseBtn">selecciona archivos</button></p>
+          <p class="upload-zone__hint">JPG, PNG, WEBP, MP4, MOV</p>
+        </div>
+      </div>
+
+      <!-- Upload queue -->
+      <div class="upload-queue" id="uploadQueue"></div>
+
+      <!-- Media grid -->
+      <div class="media-section">
+        <div class="media-grid" id="mediaGrid">
+          <div class="media-loading" id="mediaLoading">
+            <span>Cargando...</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Confirm delete dialog -->
+  <div class="confirm-backdrop" id="confirmBackdrop"></div>
+  <div class="confirm-dialog" id="confirmDialog">
+    <p>¿Eliminar este archivo?</p>
+    <p class="confirm-sub">Esta acción no se puede deshacer.</p>
+    <div class="confirm-btns">
+      <button class="btn-ghost-sm" id="confirmCancel">Cancelar</button>
+      <button class="btn-danger" id="confirmOk">Eliminar</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
