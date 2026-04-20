@@ -1,5 +1,23 @@
-import { db } from './firebase-config.js';
-import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js';
+/* Firebase se carga de forma diferida cuando el portafolio entra en viewport */
+let _db, _doc, _getDoc;
+
+async function initFirebase() {
+  if (_db) return;
+  const [{ initializeApp }, { getFirestore, doc, getDoc }] = await Promise.all([
+    import('https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js'),
+    import('https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js'),
+  ]);
+  const app = initializeApp({
+    apiKey:            "AIzaSyDlGagOQXCVGB-Z7TYR859YFBO2juaO_N4",
+    authDomain:        "anafotos-f945f.firebaseapp.com",
+    projectId:         "anafotos-f945f",
+    messagingSenderId: "879604780673",
+    appId:             "1:879604780673:web:abd355e474b448ff884780"
+  });
+  _db = getFirestore(app);
+  _doc = doc;
+  _getDoc = getDoc;
+}
 
 /* =============================================
    AS CONTENT MEDIA — main.js
@@ -76,11 +94,12 @@ const eventMeta = {
    PORTFOLIO COVERS — cargar desde Firestore
    ============================================= */
 async function loadCovers() {
+  await initFirebase();
   const cards = document.querySelectorAll('.port-card');
   await Promise.all([...cards].map(async card => {
     const key = card.dataset.event;
     try {
-      const snap = await getDoc(doc(db, 'portafolio', key));
+      const snap = await _getDoc(_doc(_db, 'portafolio', key));
       if (!snap.exists()) return;
       const cover = snap.data().cover;
       if (!cover) return;
@@ -96,25 +115,49 @@ async function loadCovers() {
   }));
 }
 
-loadCovers();
+/* Cargar Firebase solo cuando el portafolio entra en viewport */
+const portfolioSection = document.getElementById('portafolio');
+if (portfolioSection) {
+  const portfolioObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      portfolioObserver.disconnect();
+      loadCovers();
+    }
+  }, { rootMargin: '200px' });
+  portfolioObserver.observe(portfolioSection);
+} else {
+  loadCovers();
+}
 
 /* =============================================
    3D TILT EFFECT
    ============================================= */
 document.querySelectorAll('.port-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width  - 0.5;
-    const y = (e.clientY - rect.top)  / rect.height - 0.5;
-    card.style.transform = `perspective(700px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) scale(1.03) translateZ(10px)`;
+  let rafId = null;
+  let pendingX = 0, pendingY = 0;
+  const rect = { left: 0, top: 0, width: 1, height: 1 };
+
+  card.addEventListener('mouseenter', () => {
+    const r = card.getBoundingClientRect();
+    rect.left = r.left; rect.top = r.top; rect.width = r.width; rect.height = r.height;
+    card.style.transition = 'transform 0.1s ease, box-shadow 0.4s, border-color 0.4s';
   });
+
+  card.addEventListener('mousemove', e => {
+    pendingX = (e.clientX - rect.left) / rect.width  - 0.5;
+    pendingY = (e.clientY - rect.top)  / rect.height - 0.5;
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      card.style.transform = `perspective(700px) rotateY(${pendingX * 14}deg) rotateX(${-pendingY * 14}deg) scale(1.03) translateZ(10px)`;
+      rafId = null;
+    });
+  });
+
   card.addEventListener('mouseleave', () => {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     card.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s, border-color 0.4s';
     card.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0)';
-    setTimeout(() => card.style.transition = '', 600);
-  });
-  card.addEventListener('mouseenter', () => {
-    card.style.transition = 'transform 0.1s ease, box-shadow 0.4s, border-color 0.4s';
+    setTimeout(() => { card.style.transition = ''; }, 600);
   });
 });
 
@@ -274,7 +317,8 @@ async function openModal(key) {
   modalClose.focus();
 
   try {
-    const snap = await getDoc(doc(db, 'portafolio', key));
+    await initFirebase();
+    const snap = await _getDoc(_doc(_db, 'portafolio', key));
     const items = snap.exists() ? (snap.data().items || []) : [];
 
     modalGrid.innerHTML = '';
