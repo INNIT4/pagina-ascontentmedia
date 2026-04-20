@@ -1124,9 +1124,29 @@ ul { list-style: none; }
   .modal__head { padding: 72px 24px 28px; }
   .modal__body { padding: 0 24px 60px; }
   .modal__grid { grid-template-columns: 1fr; }
-  .about { padding: 64px 0; }
-  .about__inner { grid-template-columns: 1fr; gap: 48px; }
-  .about__deco { display: none; }
+  .about { padding: 56px 0; }
+  .about__inner { grid-template-columns: 1fr; gap: 32px; }
+  .about__body { font-size: 0.88rem; line-height: 1.75; margin-bottom: 14px; }
+  .about .section-title { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: 20px; }
+  .about__signature { margin-top: 24px; padding-top: 20px; }
+
+  /* Ocultar el frame decorativo pero mostrar stats en fila */
+  .about__deco-frame { padding: 0; background: none; border: none; }
+  .about__deco-frame::before { display: none; }
+  .about__deco-inner { display: none; }
+  .about__deco-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 24px 0;
+    border-top: 1px solid var(--white-08);
+    border-bottom: 1px solid var(--white-08);
+  }
+  .about__stat-divider { display: none; }
+  .about__stat { padding: 0; text-align: center; flex: 1; }
+  .about__stat-num { font-size: 1.8rem; }
+  .about__stat-label { font-size: 0.6rem; }
+  .about__deco-area { display: none; }
   .faq { padding: 64px 0; }
   .faq__question { font-size: 1.05rem; }
   .testimonials { padding: 64px 0; }
