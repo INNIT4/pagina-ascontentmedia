@@ -55,17 +55,16 @@ const revealObserver = new IntersectionObserver(entries => {
     setTimeout(() => entry.target.classList.add('in'), Number(delay));
     revealObserver.unobserve(entry.target);
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.dataset.delay = i * 60;
+document.querySelectorAll('.reveal').forEach(el => {
   revealObserver.observe(el);
 });
 
-// Stagger cards
+// Stagger solo dentro de grillas (efecto cascada visual)
 document.querySelectorAll('.services__grid, .portfolio__grid').forEach(grid => {
   [...grid.querySelectorAll('.reveal')].forEach((el, i) => {
-    el.dataset.delay = i * 100;
+    el.dataset.delay = i * 80;
   });
 });
 
