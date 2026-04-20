@@ -95,12 +95,26 @@
     "currenciesAccepted": "MXN",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "12",
-      "bestRating": "5",
-      "worstRating": "1"
+      "ratingValue": 5,
+      "reviewCount": 5,
+      "bestRating": 5,
+      "worstRating": 1
     },
     "image": "https://pagina-ascontentmedia.vercel.app/og-image.jpg",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pagina-ascontentmedia.vercel.app/logo/logo.jpeg",
+      "width": 400,
+      "height": 400
+    },
+    "founder": {
+      "@type": "Person",
+      "@id": "https://pagina-ascontentmedia.vercel.app/#ana-sofia",
+      "name": "Ana Sofía",
+      "jobTitle": "Fotógrafa y Videógrafa de Eventos",
+      "sameAs": "https://www.instagram.com/ascontentmedia",
+      "worksFor": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+    },
     "knowsAbout": [
       "Event Photography",
       "Wedding Photography",
@@ -136,7 +150,13 @@
         "provider": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" },
         "areaServed": { "@type": "AdministrativeArea", "name": "Sonora" },
         "serviceType": "Event Photography",
-        "url": "https://pagina-ascontentmedia.vercel.app/#servicios"
+        "url": "https://pagina-ascontentmedia.vercel.app/#servicios",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+        }
       },
       {
         "@type": "Service",
@@ -146,7 +166,13 @@
         "provider": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" },
         "areaServed": { "@type": "AdministrativeArea", "name": "Sonora" },
         "serviceType": "Event Photography and Videography",
-        "url": "https://pagina-ascontentmedia.vercel.app/#servicios"
+        "url": "https://pagina-ascontentmedia.vercel.app/#servicios",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+        }
       },
       {
         "@type": "Service",
@@ -156,7 +182,13 @@
         "provider": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" },
         "areaServed": { "@type": "AdministrativeArea", "name": "Sonora" },
         "serviceType": "Event Videography",
-        "url": "https://pagina-ascontentmedia.vercel.app/#servicios"
+        "url": "https://pagina-ascontentmedia.vercel.app/#servicios",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+        }
       }
     ]
   }
@@ -246,15 +278,53 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana R." },
+        "reviewBody": "Contratamos a AS Content Media para nuestra boda en San Carlos y quedamos encantados. Las fotos capturaron cada momento con una luz increíble. El reel que hicieron para Instagram lo compartió toda nuestra familia.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "itemReviewed": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía A." },
+        "reviewBody": "El baby shower de mi bebé quedó hermoso en fotos. Tiene un don para capturar las emociones del momento. Las entregó a tiempo y la galería digital fue súper fácil de compartir con la familia.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "itemReviewed": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Familia Mendoza" },
+        "reviewBody": "La quinceañera de nuestra hija quedó de película. Desde el primer mensaje fueron muy profesionales y atentos. El video lo vemos una y otra vez. Totalmente recomendados.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "itemReviewed": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Karen y Luis" },
+        "reviewBody": "Nos casamos en Álamos y AS Content Media viajó sin ningún problema. El video de nuestra boda es lo más hermoso que tenemos. Fue la mejor decisión que tomamos para el día.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "itemReviewed": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Claudia P." },
+        "reviewBody": "Busqué mucho fotógrafo en Navojoa y no encontré nada de esta calidad. Las fotos del bautizo de mi hijo son preciosas y el servicio fue muy cálido desde el primer mensaje.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "itemReviewed": { "@id": "https://pagina-ascontentmedia.vercel.app/#business" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- Grain Overlay -->
   <div class="grain"></div>
-
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
